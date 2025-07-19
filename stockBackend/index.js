@@ -15,7 +15,7 @@ import wishlisstRoute from './routes/wishlistRoute.js';
 import paymentRoute from './routes/paymentRoute.js'
 import  router from './controllers/jazzCash.js';
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 mongoDB();
 Cloudinary();
 
@@ -51,10 +51,6 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
 
 
 app.use("/auth",authRouter);
