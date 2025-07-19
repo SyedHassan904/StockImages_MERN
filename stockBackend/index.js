@@ -21,7 +21,7 @@ Cloudinary();
 
 const app = express();
 
-const allowedOrigin = 'https://stock-images-mern.vercel.app/';
+const allowedOrigin = 'https://stock-images-mern-3mnoyc8j8-coderstudents-projects.vercel.app';
 
 app.use(cors({
   origin: allowedOrigin,
