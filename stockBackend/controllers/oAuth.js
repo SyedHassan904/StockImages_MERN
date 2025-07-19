@@ -11,7 +11,7 @@ export const googleCallback = (req, res) => {
     httpOnly: true,
     secure:false
   });
-  res.redirect(`https://stock-images-mern-3mnoyc8j8-coderstudents-projects.vercel.app`);
+  res.redirect(process.env.FRONTEND_URL);
 };
 
 export const logout = (req, res) => {
