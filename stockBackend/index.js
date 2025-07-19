@@ -21,11 +21,17 @@ Cloudinary();
 
 const app = express();
 
+const allowedOrigin = 'https://stock-images-mern.vercel.app/';
+
+app.use(cors({
+  origin: allowedOrigin,
+  credentials: true
+}));
 
 
 app.use(
   session({
-    secret: 'hhjhjkh', // 🔒 should be stored in .env
+    secret: process.env.SECRET, // 🔒 should be stored in .env
     resave: false,
     saveUninitialized: false,
     cookie: {
