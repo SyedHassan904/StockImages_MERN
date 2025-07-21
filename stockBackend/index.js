@@ -13,7 +13,6 @@ import session from 'express-session';
 import imageStatRoute from './routes/imageStatRoute.js';
 import wishlisstRoute from './routes/wishlistRoute.js';
 import paymentRoute from './routes/paymentRoute.js'
-import  router from './controllers/jazzCash.js';
 
 const PORT = process.env.PORT || 5000
 mongoDB();
@@ -68,7 +67,6 @@ app.use("/stock",imageRoute);
 app.use("/stat-api",imageStatRoute)
 app.use("/wishlist-api",wishlisstRoute)
 app.use("/api",paymentRoute)
-app.use("/",router)
 
 
 app.listen(PORT,()=>{
