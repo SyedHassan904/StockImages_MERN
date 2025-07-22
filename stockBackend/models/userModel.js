@@ -34,16 +34,16 @@ const userSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
+     token:{
+        type:String,
+        default:""
+    },
     downloadedImages: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "image"
         }
-    ],
-    token:{
-        type:String,
-        default:""
-    }
+    ]
 })
 
 const userModel = mongoose.model.user || mongoose.model("user", userSchema);
