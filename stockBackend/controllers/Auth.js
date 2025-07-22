@@ -5,6 +5,8 @@ import { createJWT } from "../utils/utils.js";
 import jwt from 'jsonwebtoken'
 import validator from 'validator';
 import { v2 as cloudinary } from 'cloudinary'
+import main from "../config/nodemailer.js";
+import createHashPassword from "../utils/createHashPassword.js";
 
 const RegisterUser = async (req, res) => {
     const { name, email, password } = req.body;
