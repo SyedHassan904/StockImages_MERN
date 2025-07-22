@@ -14,7 +14,9 @@ import License from './pages/web/License.jsx';
 import Navbar from './components/common/Navbar/Navbar.jsx';
 import Layout from './components/common/Layout.jsx';
 import ProtectedRoute from './components/common/ProtectedRoute.jsx';
-import ScrollToTop from './components/common/ScrollToTop.jsx'; // 👈 import scroll-to-top
+import ScrollToTop from './components/common/ScrollToTop.jsx'; 
+import ForgotPassword from './pages/auth/ForgotPassword.jsx'
+import ResetPassword from './pages/auth/ResetPassword.jsx'
 
 import CategoryBased from './components/web/ImageGallery/CategoryBased.jsx';
 import Home from './pages/web/Home';
@@ -55,6 +57,8 @@ function App() {
         <Route path="/terms" element={<Layout><Terms /></Layout>} />
         <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
         <Route path="/license" element={<Layout><License /></Layout>} />
+        <Route path="/forgot-password" element={<Layout><ForgotPassword /></Layout>} />
+        <Route path="/reset-password" element={<Layout><ResetPassword /></Layout>} />
 
         {/* Routes wrapped with Layout (adds top padding only) */}
         <Route path="/" element={<Layout><Home /></Layout>} />
