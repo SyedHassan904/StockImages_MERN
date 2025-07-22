@@ -39,7 +39,11 @@ const userSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "image"
         }
-    ]
+    ],
+    token:{
+        type:String,
+        default:""
+    }
 })
 
 const userModel = mongoose.model.user || mongoose.model("user", userSchema);
