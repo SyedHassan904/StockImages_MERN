@@ -168,4 +168,43 @@ const verifyAdmin = (req, res) => {
         return res.status(401).json({ message: 'Invalid or expired token' });
     }
 }
-export default { RegisterUser, LoginUser, adminLogin, verifyAdmin, updateUser}
+
+const forgotPassword = async (req, res) => {
+    const { email } = req.body
+    try {
+        let user = await userModel.findOne({ email });
+        if (!user) {
+            return res.json({ success: false, message: "user not found" });
+        }
+        const token = randomstring.generate();
+        const updatedUser = await userModel.findOneAndUpdate({ _id: user._id }, { $set: { "token": token } }, { new: true });
+        main(email, token)
+        res.json({ success: true, message: "Check your inbox" })
+
+
+
+    } catch (error) {
+        res.json({ success: false, message: error.message });
+    }
+
+}
+
+
+const resetPassword = async (req, res) => {
+    // const { token } = req.query;
+    const { token,newPassword } = req.body
+    try {
+        console.log("Token received:", token);
+        let user = await userModel.findOne({ token });
+        if (!user) {
+            return res.json({ success: false, message: "The token has been expired" });
+        }
+        const hashPassword = await createHashPassword(newPassword);
+        let updatedUser = await userModel.findByIdAndUpdate({ _id: user._id }, { $set: { "password": hashPassword, "token": "" } },{new:true})
+        res.json({success:true,message:"password reset successfully"});
+    } catch (error) {
+        res.json({ success: false, message: error.message });
+    }
+}
+
+export default { RegisterUser, LoginUser, adminLogin, verifyAdmin, updateUser, forgotPassword ,resetPassword}
