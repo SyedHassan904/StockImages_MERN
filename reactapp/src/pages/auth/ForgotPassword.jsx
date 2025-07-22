@@ -15,7 +15,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(`REACT_APP_URL/auth/forgotpassword`, { email });
+      const response = await axios.post(`${REACT_APP_URL}/auth/forgotpassword`, { email });
       
       if (response.data.success) {
         toast.success('Password reset link sent to your email!');
