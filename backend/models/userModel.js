@@ -34,7 +34,7 @@ const userSchema = mongoose.Schema({
     profileURL:{
         type:String
     }
-})
+},{ timestamps: true })
 
 const userModel = mongoose.model.user || mongoose.model("user",userSchema);
 
