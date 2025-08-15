@@ -18,7 +18,7 @@ const DashboardLayout = () => {
       <div className="hidden md:flex md:flex-shrink-0">
         <div className="flex flex-col w-64 bg-gradient-to-b from-indigo-600 to-indigo-800 text-white">
           <div className="flex items-center justify-center h-16 px-4 border-b border-indigo-500">
-            <h1 className="text-xl font-bold">ImageHub Admin</h1>
+            <h1 className="text-xl font-bold">VisualStock Admin</h1>
           </div>
           <nav className="flex-1 px-4 py-4 space-y-2">
             <Link to="/" className="flex items-center px-4 py-2 rounded-lg hover:bg-indigo-500 transition-colors">
